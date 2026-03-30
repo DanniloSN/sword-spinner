@@ -145,6 +145,12 @@ npx nodemon server.js
 |---|---|---|
 | `PORT` | `3000` | HTTP server port |
 
+Create a `.env` file in the project root if you want to override defaults locally:
+
+```env
+PORT=4000
+```
+
 ---
 
 ## Project Structure
