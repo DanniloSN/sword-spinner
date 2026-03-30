@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>SwordSpinner</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════ LOBBY ═══════════════════════════ -->
+  <div id="lobby-screen">
+    <div class="lobby-container">
+      <div class="logo">
+        <span class="logo-icon">⚔</span>
+        <h1>SwordSpinner</h1>
+        <p class="tagline">Gire, corte, sobreviva</p>
+      </div>
+
+      <div class="name-section">
+        <label for="player-name">Seu nome</label>
+        <input id="player-name" type="text" maxlength="20" placeholder="Jogador" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="char-section">
+        <label>Escolha seu personagem</label>
+        <div id="character-grid"></div>
+      </div>
+
+      <button id="play-btn" class="btn-play">
+        <span>JOGAR</span>
+      </button>
+
+      <div class="controls-hint">
+        <span>Desktop: WASD / setas</span>
+        <span class="sep">·</span>
+        <span>Mobile: joystick virtual</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ GAME ════════════════════════════ -->
+  <div id="game-screen" style="display:none">
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Kill feed -->
+    <div id="kill-feed"></div>
+
+    <!-- Top-right: change character button -->
+    <button id="change-char-btn" title="Trocar personagem">⚔</button>
+
+    <!-- Character picker overlay (hidden by default) -->
+    <div id="char-picker" style="display:none">
+      <div class="picker-panel">
+        <h3>Trocar Personagem</h3>
+        <div id="picker-grid"></div>
+        <button id="close-picker">Cancelar</button>
+      </div>
+    </div>
+
+    <!-- Mobile joystick zone (left half of screen) -->
+    <div id="joystick-zone">
+      <div id="joystick-base"></div>
+      <div id="joystick-knob" style="display:none"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/characters.js"></script>
+  <script src="/js/client.js"></script>
+</body>
+</html>
